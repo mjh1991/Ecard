@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
+  <asmv1:assemblyIdentity name="EcardFuli.exe" version="1.0.2.26" publicKeyToken="3c901bb8270cf9a2" language="neutral" processorArchitecture="x86" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="EcardFuli" version="1.0.2.0" language="neutral" processorArchitecture="x86" />
+    <commandLine file="EcardFuli.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC 清单选项
+          如果要更改 Windows 用户帐户控制级别，请用以下节点之一替换
+          requestedExecutionLevel 节点。
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+          如果要利用文件和注册表虚拟化提供
+          向后兼容性，请删除 requestedExecutionLevel 节点。
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EcardFuli.exe" size="574976">
+      <assemblyIdentity name="EcardFuli" version="1.0.2.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>2seY93rtjlbkFRRDwX5n7KEEeZ8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EcardFuli.XmlSerializers.dll" size="161792">
+      <assemblyIdentity name="EcardFuli.XmlSerializers" version="1.0.2.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>0v4Gyo7I4lFxHdJksmNYqTi6EsU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="EcardFuli.exe.config" size="1133">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>M6G606M8MUCkrONYkpDHmz31XlI=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=xxjwd-wlzx-zcj\zcj" issuerKeyHash="ad7ce9866d7c855a9a9da4aa4e17d9c41a4ff337" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>kIwMGXmbNhQ2RpFjP94ZIROGKvQ=</DigestValue></Reference></SignedInfo><SignatureValue>U6N25BKkm+C9h7uG3z44w0hex+r2GSZaJiOqnBS7yTUjdllLpB8kBYjd6IN6sIiANdnG9aMST0Os1waNfwjz18HtThxP4WKgw0MHNFqT/0XUtiSaCpN/43eVZh9PWgLSPYDPwRB8WKiX7DhkjA2WVJQ/mYZRknH6V5FlKVaJJAg=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>17tt5XV2QTBR8stL6UlwQjGgVAProB2oKbaYM+xdfM9daebNwmTjLAI7aS1gQjEJbfkXuUS+a7KOEy6Ec1ltc5k4ONZx1zo76PNaFT4CmEGscGwHgShI5f0+gnsVyxb0q9IKYNaqOn6migBJf+07Voj7eAGE7rOzHevV4elw4hU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="f42a86132119de3f6391463614369b79190c8c90" Description="" Url=""><as:assemblyIdentity name="EcardFuli.exe" version="1.0.2.26" publicKeyToken="3c901bb8270cf9a2" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=xxjwd-wlzx-zcj\zcj</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>rO6EsL/zpHpgtB2Tlfu00erz5+I=</DigestValue></Reference></SignedInfo><SignatureValue>BejurSsoVga2PuOwJb7BqJOUO+ttXinoG0vmE2n87zDFp8pFLVRS1mKf+IrRsOEv6cakIcPOSnCSIDJ9x5jNF/L4a8EzprXjQM1jwu0Q7P0gUvQYQ+LtBm4qoUTFwTmI6aw27m51wc2c1rQ61pGrbAOaWfHYk+OKPWDWOYBFkpA=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>17tt5XV2QTBR8stL6UlwQjGgVAProB2oKbaYM+xdfM9daebNwmTjLAI7aS1gQjEJbfkXuUS+a7KOEy6Ec1ltc5k4ONZx1zo76PNaFT4CmEGscGwHgShI5f0+gnsVyxb0q9IKYNaqOn6migBJf+07Voj7eAGE7rOzHevV4elw4hU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB4TCCAUqgAwIBAgIQE3XnkALMvb1E9+U+rIKiwjANBgkqhkiG9w0BAQUFADAvMS0wKwYDVQQDHiQAeAB4AGoAdwBkAC0AdwBsAHoAeAAtAHoAYwBqAFwAegBjAGowHhcNMTUxMDIxMDg0NjAxWhcNMTYxMDIwMTQ0NjAxWjAvMS0wKwYDVQQDHiQAeAB4AGoAdwBkAC0AdwBsAHoAeAAtAHoAYwBqAFwAegBjAGowgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBANe7beV1dkEwUfLLS+lJcEIxoFQD66AdqCm2mDPsXXzPXWnmzcJk4ywCO2ktYEIxCW35F7lEvmuyjhMuhHNZbXOZODjWcdc6O+jzWhU+AphBrHBsB4EoSOX9PoJ7FcsW9KvSCmDWqjp+pooASX/tO1aI+3gBhO6zsx3r1eHpcOIVAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAZlIt/c+oblyoOEJACenLR82XppjDPvfK/Ea7UHpeWOXVbuimCOFGbIthMmL4FYRVyUu6qwKHolMxJ18uQgBRroaF7z/JGa1ywA4Nws/AiGRU53QdtP8D6IrOGPhnL5KchrxnekR036C3dAiCOi8PyjjoSInLiBVZO3R73EKWR1o=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

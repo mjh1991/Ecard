@@ -1,0 +1,4 @@
+81.18 automanage
+T_Ecard_Receive_Details
+V_Ecard_Details
+V_Ecard_Plans
