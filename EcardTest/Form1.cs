@@ -21,6 +21,7 @@ namespace EcardTest
             DataTable dt = new DataTable();
             sda.Fill(dt);
             return dt;
+            int i = 1;
         }
 
         double getMoneyFromDataBase(string rfkh)
