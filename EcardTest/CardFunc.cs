@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace CardFuncBase
 {
-    class CardFunc
+    internal class CardFunc
     {
 
 
