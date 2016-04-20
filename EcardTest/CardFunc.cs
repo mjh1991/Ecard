@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace CardFuncBase
 {
@@ -82,8 +84,8 @@ namespace CardFuncBase
         /// <param name="port">端口号</param>
         /// <param name="mm">密码</param>
         /// <returns></returns>
-        [DllImport("project2.dll", CharSet = CharSet.Ansi)]
-        private static extern bool downmmre(int port, string mm);
+        [DllImport("project2.dll", EntryPoint = "downmmre", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        private static extern int downmmre(int port, string mm);
 
         /// <summary>
         /// 写新开卡信息
@@ -107,12 +109,19 @@ namespace CardFuncBase
         private static extern bool allcardpassword(int port, string mm);
 
 
+        [DllImport("project2.dll", EntryPoint = "adddata", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        private static extern bool adddata(string a, int b);
+
         #endregion
 
 
 
 
-
+        public static bool add(int x, int y)
+        {
+            
+            return adddata(x.ToString(), y);
+        }
 
 
         public static bool InitCard(int port, string mm)
@@ -190,7 +199,7 @@ namespace CardFuncBase
             return dqjk(port, kh, count);
         }
 
-        public static bool SetPassword(int port, string pass)
+        public static int SetPassword(int port, string pass)
         {
             return downmmre(port, pass);
         }
@@ -202,8 +211,10 @@ namespace CardFuncBase
 
         internal static string GetCardNo(int iPort)
         {
-            return readkh(iPort).ToString();
-
+            int kh = readkh(iPort);
+            if (kh < 0) return null;
+            else if (kh > 820000) return null;
+            else return kh.ToString();
         }
 
 
@@ -227,7 +238,7 @@ namespace CardFuncBase
     class CardOper
     {
         private int _iPort;
-        private string _passwd = "78ACC0957066";
+        private string _passwd = string.Empty;
 
 
         public void SetType(CardType type)
@@ -236,17 +247,19 @@ namespace CardFuncBase
             {
                 case CardType.CanBu:
                     _passwd = "78ACC0957066";
+                    
                     break;
                 case CardType.YuanGong:
                     _passwd = "F832E49BD558";
                     break;
             }
+            CardFunc.SetPassword(_iPort, _passwd);
         }
 
         public bool InitCard()
         {
             string oldPass = "FFFFFFFFFFFF";
-            if (CardFunc.SetPassword(_iPort, oldPass) == false)
+            if (CardFunc.SetPassword(_iPort, oldPass) <=0)
             {
                 return false;
             }
@@ -254,7 +267,7 @@ namespace CardFuncBase
             {
                 return false;
             }
-            if (CardFunc.SetPassword(_iPort, _passwd) == false)
+            if (CardFunc.SetPassword(_iPort, _passwd) <=0)
             {
                 return false;
             }
@@ -266,14 +279,22 @@ namespace CardFuncBase
             for (int i = 1; i < 16; i++)
             {
                 _iPort = i;
-                if (CardFunc.SetPassword(_iPort, _passwd))
+                int j = CardFunc.SetPassword(_iPort, _passwd);
+                if (j >= 0)
                 {
                     return true;
                 }
+
             }
             return false;
         }
 
+
+        public CardOper()
+        {
+            _iPort = -1;
+            SetType(CardType.CanBu);
+        }
 
         public CardOper(CardType type)
         {
@@ -296,7 +317,9 @@ namespace CardFuncBase
 
         public string GetCardno()
         {
-            return CardFunc.GetCardNo(_iPort).PadLeft(6, '0');
+            string kh = CardFunc.GetCardNo(_iPort);
+            if (string.IsNullOrEmpty(kh)) return null;
+            return kh.PadLeft(6, '0');
 
 
         }
@@ -354,7 +377,41 @@ namespace CardFuncBase
         }
 
 
+        public static bool adddata(int x, int y)
+        {
+            return CardFunc.add(x, y);
 
+        }
+
+        internal bool InitCardFromCanBuToYuanGong()
+        {
+            if (CardFunc.SetPassword(_iPort, "78ACC0957066") <=0)
+            {
+                return false;
+            }
+            if (CardFunc.InitCard(_iPort, "F832E49BD558") == false)
+            {
+                return false;
+            }
+            if (CardFunc.SetPassword(_iPort, "F832E49BD558")<=0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        internal bool InitCardFromYuanGongToYuanGong()
+        {
+            if (CardFunc.SetPassword(_iPort, "F832E49BD558") <= 0)
+            {
+                return false;
+            }
+            if (CardFunc.InitCard(_iPort, "F832E49BD558") == false)
+            {
+                return false;
+            }
+            return true;
+        }
 
     }
 
